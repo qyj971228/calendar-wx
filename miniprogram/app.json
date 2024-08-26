@@ -1,8 +1,6 @@
 {
 	"pages": [
-		"pages/calendar/calendar",
-		"pages/index/index",
-		"pages/logs/logs"
+		"pages/calendar/calendar"
 	],
 	"window": {
 		"navigationBarTextStyle": "black",
