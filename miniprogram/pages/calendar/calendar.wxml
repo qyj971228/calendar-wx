@@ -1,0 +1,5 @@
+<!--pages/calendar.wxml-->
+<view>
+	<view>this is calendar page</view>
+	<component-calendar></component-calendar>
+</view>

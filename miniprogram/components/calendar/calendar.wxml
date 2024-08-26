@@ -1,0 +1,6 @@
+<!--components/calendar.wxml-->
+<view class="{{ !canMoveTouch ? 'swiper-mask' : '' }}">
+	<swiper duration="200" bindchange="onHandleChange" bindanimationfinish="onHandleAnimationFinish" circular>
+		<swiper-item wx:for="{{list}}" wx:key="key">{{item.id}}</swiper-item>
+	</swiper>
+</view>
