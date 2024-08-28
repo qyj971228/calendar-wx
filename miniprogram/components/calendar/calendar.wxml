@@ -1,8 +1,8 @@
 <!--components/calendar.wxml-->
 <view class="{{ !canMoveTouch ? 'swiper-mask' : '' }}">
-	<swiper duration="200" bindchange="onHandleChange" bindanimationfinish="onHandleAnimationFinish" circular>
-		<swiper-item wx:for="{{list}}" wx:key="key">
-			<view class="item-block">{{item.id}}{{item.date ? '-' + item.date : ''}}</view>
+	<swiper class="swiper" duration="200" bindchange="onHandleChange" bindanimationfinish="onHandleAnimationFinish" circular>
+		<swiper-item wx:for="{{list}}" wx:key="id">
+			<calendar-item date="{{item.date}}"></calendar-item>
 		</swiper-item>
 	</swiper>
 </view>

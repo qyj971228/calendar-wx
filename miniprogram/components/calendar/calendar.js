@@ -25,9 +25,9 @@ Component({
 			// 在组件实例进入页面节点树时执行
 			this.setData({
 				list: [
-					{ id: 1, key: "0-1", date: moment(new Date()).format('YYYY-MM-DD') },
-					{ id: 2, key: "1-2" },
-					{ id: 3, key: "2-3" },
+					{ id: 0, date: this.getMonth(0) },
+					{ id: 1, date: this.getMonth(1) },
+					{ id: 2, date: this.getMonth(-1) },
 				]
 			})
 		},
@@ -37,6 +37,9 @@ Component({
 	 * 组件的方法列表
 	 */
 	methods: {
+		getMonth(num, date) {
+			return moment(date).add(num, 'months').format('YYYY-MM')
+		},
 		onHandleChange() {
 			// console.log('start change')
 			this.setData({
@@ -49,16 +52,16 @@ Component({
 			const currentIndex = e.detail.current
 			const listLength = 3
 
-			const getIndex = (index, offset) => (index + offset + listLength) % listLength
-
-			const nextIndex = getIndex(currentIndex, 1)
-			const preIndex = getIndex(currentIndex, -1)
-			const currentVal = this.data.list[currentIndex].id
+			const getID = (index, offset) => (index + offset + listLength) % listLength
+			const nextIndex = getID(currentIndex, 1)
+			const preIndex = getID(currentIndex, -1)
+			const currentID = this.data.list[currentIndex].id
+			const currentDate = this.data.list[currentIndex].date
 
 			const newList = []
-			newList[preIndex] = { id: currentVal - 1, key: `${preIndex}-${currentVal - 1}` }
-			newList[currentIndex] = { id: currentVal, key: `${currentIndex}-${currentVal}` }
-			newList[nextIndex] = { id: currentVal + 1, key: `${nextIndex}-${currentVal + 1}` }
+			newList[preIndex] = { id: currentID - 1, date: this.getMonth(-1, currentDate) }
+			newList[currentIndex] = { id: currentID, date: this.getMonth(0, currentDate) }
+			newList[nextIndex] = { id: currentID + 1, date: this.getMonth(1, currentDate) }
 
 			this.setData({
 				list: newList,

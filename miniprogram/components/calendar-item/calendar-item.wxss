@@ -1,1 +1,7 @@
 /* components/calendar-item/calendar-item.wxss */
+.swiper-item {
+	height: 800rpx;
+	width: 750rpx;
+	border: 1px solid red;
+	box-sizing: border-box;
+}
