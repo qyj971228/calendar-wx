@@ -1,4 +1,6 @@
 // components/calendar.ts
+import moment from 'moment'
+
 Component({
 
 	/**
@@ -12,12 +14,23 @@ Component({
 	 * 组件的初始数据
 	 */
 	data: {
-		list: [
-			{ id: 1, key: "0-1" },
-			{ id: 2, key: "1-2" },
-			{ id: 3, key: "2-3" },
-		],
+		list: [],
 		canMoveTouch: true,
+	},
+	/**
+	 * 组件的生命周期
+	 */
+	lifetimes: {
+		attached() {
+			// 在组件实例进入页面节点树时执行
+			this.setData({
+				list: [
+					{ id: 1, key: "0-1", date: moment(new Date()).format('YYYY-MM-DD') },
+					{ id: 2, key: "1-2" },
+					{ id: 3, key: "2-3" },
+				]
+			})
+		},
 	},
 
 	/**

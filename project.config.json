@@ -3,6 +3,14 @@
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
   "setting": {
+    "es6": true,
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "package.json",
+        "miniprogramNpmDistDir": "/miniprogram"
+      }
+    ],
     "useCompilerPlugins": [],
     "babelSetting": {
       "ignore": [],
@@ -14,7 +22,6 @@
     "minified": false,
     "enhance": false,
     "showShadowRootInWxmlPanel": false,
-    "packNpmRelationList": [],
     "ignoreUploadUnusedFiles": true,
     "compileHotReLoad": false,
     "skylineRenderEnable": true

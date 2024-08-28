@@ -12,3 +12,11 @@
 	bottom: 0;
 	z-index: 2;
 }
+
+.item-block {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
