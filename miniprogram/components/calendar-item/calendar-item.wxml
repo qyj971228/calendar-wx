@@ -1,2 +1,6 @@
 <!--components/calendar-item/calendar-item.wxml-->
-<view class="swiper-item">{{date}}</view>
+<view class="calendar">
+	<view class="calendar-item" wx:for="{{dayList}}" wx:key="item">
+		{{item}}
+	</view>
+</view>

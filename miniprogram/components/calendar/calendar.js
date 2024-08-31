@@ -14,8 +14,10 @@ Component({
 	 * 组件的初始数据
 	 */
 	data: {
-		list: [],
+		currentMonth: '',
+		swiperList: [],
 		canMoveTouch: true,
+		calendarTitle: ['日', '一', '二', '三', '四', '五', '六'],
 	},
 	/**
 	 * 组件的生命周期
@@ -24,11 +26,12 @@ Component({
 		attached() {
 			// 在组件实例进入页面节点树时执行
 			this.setData({
-				list: [
+				swiperList: [
 					{ id: 0, date: this.getMonth(0) },
 					{ id: 1, date: this.getMonth(1) },
 					{ id: 2, date: this.getMonth(-1) },
-				]
+				],
+				currentMonth: this.getMonth(0),
 			})
 		},
 	},
@@ -55,17 +58,18 @@ Component({
 			const getID = (index, offset) => (index + offset + listLength) % listLength
 			const nextIndex = getID(currentIndex, 1)
 			const preIndex = getID(currentIndex, -1)
-			const currentID = this.data.list[currentIndex].id
-			const currentDate = this.data.list[currentIndex].date
+			const currentID = this.data.swiperList[currentIndex].id
+			const currentMonth = this.data.swiperList[currentIndex].date
 
 			const newList = []
-			newList[preIndex] = { id: currentID - 1, date: this.getMonth(-1, currentDate) }
-			newList[currentIndex] = { id: currentID, date: this.getMonth(0, currentDate) }
-			newList[nextIndex] = { id: currentID + 1, date: this.getMonth(1, currentDate) }
+			newList[preIndex] = { id: currentID - 1, date: this.getMonth(-1, currentMonth) }
+			newList[currentIndex] = { id: currentID, date: this.getMonth(0, currentMonth) }
+			newList[nextIndex] = { id: currentID + 1, date: this.getMonth(1, currentMonth) }
 
 			this.setData({
-				list: newList,
-				canMoveTouch: true
+				swiperList: newList,
+				canMoveTouch: true,
+				currentMonth: currentMonth
 			})
 		}
 	}
