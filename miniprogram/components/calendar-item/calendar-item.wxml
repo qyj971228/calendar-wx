@@ -1,6 +1,16 @@
 <!--components/calendar-item/calendar-item.wxml-->
-<view class="calendar">
-	<view class="calendar-item" wx:for="{{dayList}}" wx:key="item">
-		{{item}}
+<view class="h-700 w-750 mx-25 flex flex-wrap">
+	<view class="flex flex-col w-100 border-box text-center relative rounded-2" wx:for="{{computedDayList}}" wx:key="date" wx:for-item="item">
+		<view class="absolute w-85 z--1 rounded-2 top-0 bottom-0" style="background-color: {{item.dayBackground}}; left: 50%; transform: translateX(-50%);">
+			<view wx:if="{{item.scheduleList.length}}" class="h-8 w-8 left-10 top-14 rounded-100 absolute" style="background-color: #2F4BEC;"></view>
+		</view>
+		<view wx:if="{{currentDate === item.date && currentMonth === month}}" class="mt-20 m-x-a w-40 text-28 font-400 line-height-40 text-center rounded-40" style="color: #fff; background-color: #2F4BEC;">{{item.date}}</view>
+		<view wx:else class="mt-20 text-28 font-400 line-height-40 text-center">{{item.date}}</view>
+		<view wx:if="{{item.date}}" class="text-18 text-#000 font-400 line-height-40 text-center">晴</view>
+		<view class="text-16 h-24 line-height-24 text-left" wx:for="{{item.weatherWarn.warnInDay}}" wx:key="id" wx:for-item="el" style="background-color: {{el.bgColor}};">
+			<view class="h-24" style="color: {{el.textColor}}; border-left: {{el.isStart ? '2px solid' : '0'}}; border-right: {{el.isEnd ? '2px solid' : '0'}};">
+				<view class="pl-10" wx:if="{{el.isStart}}" style="white-space: nowrap; overflow: {{ (el.isEnd && el.isStart) ? 'hidden' : 'visible' }}; text-overflow: ellipsis;">{{el.warnType}}</view>
+			</view>
+		</view>
 	</view>
 </view>

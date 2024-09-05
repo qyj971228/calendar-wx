@@ -1,1 +1,4 @@
 /* pages/calendar.wxss */
+.nav {
+	border: 1px solid red;
+}

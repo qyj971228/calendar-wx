@@ -1,5 +1,8 @@
 {
+	"navigationStyle": "custom",
+	"disableScroll": true,
 	"usingComponents": {
-		"calendar": "/components/calendar/calendar"
+		"calendar": "/components/calendar/calendar",
+		"nav": "/components/nav/nav"
 	}
 }

@@ -3,11 +3,16 @@ import moment from 'moment'
 
 Component({
 
+	options: {
+		addGlobalClass: true
+	},
+
 	/**
 	 * 组件的属性列表
 	 */
 	properties: {
-
+		scheduleList: {},
+		warnList: {}
 	},
 
 	/**
@@ -34,6 +39,15 @@ Component({
 				currentMonth: this.getMonth(0),
 			})
 		},
+	},
+
+	/**
+	 * 监听
+	 */
+	observers: {
+		'currentMonth'() {
+			this.triggerEvent('currentMonthChange', { currentMonth: this.data.currentMonth })
+		}
 	},
 
 	/**

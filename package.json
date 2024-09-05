@@ -1,16 +1,20 @@
 {
-  "name": "miniprogram-ts-less-quickstart",
-  "version": "1.0.0",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "miniprogram-api-typings": "^2.8.3-1"
-  },
-  "main": "index.js",
-  "description": "",
-  "dependencies": {
-    "moment": "^2.30.1"
-  }
+	"name": "miniprogram-ts-less-quickstart",
+	"version": "1.0.0",
+	"scripts": {
+		"unocss": "unocss miniprogram/pages/**/*.wxml miniprogram/components/**/*.wxml -c unocss.config.js --watch -o miniprogram/unocss.wxss"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"miniprogram-api-typings": "3.12.2",
+		"unocss": "^0.62.3",
+		"unocss-preset-weapp": "^0.62.0"
+	},
+	"main": "index.js",
+	"description": "",
+	"dependencies": {
+		"moment": "^2.30.1"
+	}
 }

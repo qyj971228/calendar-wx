@@ -1,9 +1,4 @@
 /* components/calendar.wxss */
-.month {
-	font-weight: bolder;
-	font-size: 50rpx;
-}
-
 .swiper-mask {
 	position: relative;
 }
@@ -16,29 +11,4 @@
 	right: 0;
 	bottom: 0;
 	z-index: 2;
-}
-
-.swiper {
-	height: 800rpx;
-}
-
-.calendar-title {
-	height: 100rpx;
-	width: 700rpx;
-	margin: 0 25rpx;
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	overflow: hidden;
-}
-
-.calendar-title-item {
-	width: 100rpx;
-	height: 100rpx;
-	box-sizing: border-box;
-	line-height: 100rpx;
-	text-align: center;
-	font-weight: bolder;
 }

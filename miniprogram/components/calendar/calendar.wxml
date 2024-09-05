@@ -1,14 +1,15 @@
 <!--components/calendar.wxml-->
-<view class="month">{{currentMonth}}</view>
-<view class="calendar-title">
-	<view class="calendar-title-item" wx:for="{{calendarTitle}}" wx:key="item">
-		{{item}}
+<view>
+	<view class="h-100 w-700 mx-25 border-box flex flex-wrap">
+		<view class="flex-1 h-100 text-center line-height-100 text-20 font-400 color-#000" wx:for="{{calendarTitle}}" wx:key="item" wx:for-item="item">
+			周{{item}}
+		</view>
 	</view>
-</view>
-<view class="{{ !canMoveTouch ? 'swiper-mask' : '' }}">
-	<swiper class="swiper" duration="200" bindchange="onHandleChange" bindanimationfinish="onHandleAnimationFinish" circular>
-		<swiper-item wx:for="{{swiperList}}" wx:key="id">
-			<calendar-item month="{{item.date}}"></calendar-item>
-		</swiper-item>
-	</swiper>
+	<view class="{{ !canMoveTouch ? 'swiper-mask' : '' }}">
+		<swiper class="h-700" duration="200" bindchange="onHandleChange" bindanimationfinish="onHandleAnimationFinish" circular>
+			<swiper-item wx:for="{{swiperList}}" wx:key="id">
+				<calendar-item month="{{item.date}}" schedule="{{scheduleList[item.date]}}" warn="{{warnList[item.date]}}"></calendar-item>
+			</swiper-item>
+		</swiper>
+	</view>
 </view>

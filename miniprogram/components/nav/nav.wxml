@@ -1,0 +1,19 @@
+<!--components/nav/nav.wxml-->
+<view style="height: {{navHeight + statusBarHeight}}px">
+	<view wx:if="{{isHomePage}}" class="flex items-center" style="padding-top: {{statusBarHeight}}px; line-height: {{navHeight}}px;">
+		<view class="w-150 text-center" style="height: {{navHeight}}px">城市定位</view>
+		<view class="w-450 text-center font-500 text-37"><slot name="title"></slot></view>
+		<view class="w-150"></view>
+	</view>
+	<view wx:if="{{!isHomePage}}" class="flex items-center" style="padding-top: {{statusBarHeight}}px; line-height: {{navHeight}}px;">
+		<view class="flex items-center w-75" style="height: {{navHeight}}px" bind:tap="back">
+			<image class="block rotate-180 ml-25" style="height: 40rpx; width: 40rpx;" mode="aspectFit" src="/images/right-arrow.png"></image>
+		</view>
+		<view class="w-600 text-center font-500 text-37"><slot name="title"></slot></view>
+		<view class="w-75"></view>
+	</view>
+	
+</view>
+<scroll-view bind:refresherrefresh="pullRefresh" refresher-enabled='{{refresherEnabled}}' refresher-triggered='{{refresherTriggered}}' style='height: calc(100vh - {{navHeight}}px)' scroll-y>
+	<slot></slot>
+</scroll-view>

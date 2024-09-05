@@ -1,4 +1,9 @@
 <!--pages/calendar.wxml-->
-<view>
-	<calendar></calendar>
-</view>
+
+<nav isHomePage="{{true}}" refresherEnabled="{{true}}" refresherTriggered="{{triggered}}" bind:pullRefresh="pullRefresh">
+	<view slot="title">气象日历</view>
+	<view>
+		<view>{{currentMonth}}</view>
+		<calendar scheduleList="{{scheduleList}}" warnList="{{warnList}}" bind:currentMonthChange="onHandleCurrentMonthChange"></calendar>
+	</view>
+</nav>
